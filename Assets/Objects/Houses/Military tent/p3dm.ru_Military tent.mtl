@@ -1,0 +1,26 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 21.03.2016 15:08:24
+
+newmtl 15a58de6_dds
+	Ns 10.000000
+	Ni 1.500000
+	d 1.000000
+	Tr 0.000000
+	Tf 1.000000 1.000000 1.000000 
+	illum 2
+	Ka 0.700000 0.700000 0.700000
+	Kd 0.700000 0.700000 0.700000
+	Ks 0.100000 0.100000 0.100000
+	Ke 0.000000 0.000000 0.000000
+	map_Ka D:\My_dokuments\3DReaperDX\The Expendables 2 Videogame3\Textures\15a58de6.dds
+	map_Kd D:\My_dokuments\3DReaperDX\The Expendables 2 Videogame3\Textures\15a58de6.dds
+
+newmtl wire_224143087
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.878431 0.560784 0.341176
+	Kd 0.878431 0.560784 0.341176
+	Ks 0.350000 0.350000 0.350000

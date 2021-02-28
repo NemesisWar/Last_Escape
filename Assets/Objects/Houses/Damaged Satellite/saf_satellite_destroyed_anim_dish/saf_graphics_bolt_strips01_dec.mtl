@@ -1,0 +1,7 @@
+newmtl saf_graphics_bolt_strips01_dec
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Ks 0.50 0.50 0.50
+map_Kd ..\\_images\\saf_graphics_bolt_strips_01_col.tga
+map_bump ..\\_images\\saf_graphics_bolt_strips_01_nml.tga

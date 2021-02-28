@@ -1,0 +1,8 @@
+newmtl me_floor_metalgratingparallel
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Ks 0.50 0.50 0.50
+map_Kd ..\\_images\\me_floor_metalgratingparallel_col#0.tga
+map_bump ..\\_images\\me_floor_metalgratingparallel_nml#0.tga
+map_Ks ..\\_images\\~me_floor_metalgratingparalle~c8f01dd0.tga

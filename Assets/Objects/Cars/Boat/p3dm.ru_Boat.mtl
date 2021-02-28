@@ -1,0 +1,68 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 22.04.2016 08:29:37
+
+newmtl Material__174
+	Ns 10.000000
+	Ni 1.500000
+	d 1.000000
+	Tr 0.000000
+	Tf 1.000000 1.000000 1.000000 
+	illum 2
+	Ka 0.588000 0.588000 0.588000
+	Kd 0.588000 0.588000 0.588000
+	Ks 0.000000 0.000000 0.000000
+	Ke 0.000000 0.000000 0.000000
+	map_Ka C:\Users\vados\Desktop\3D models\IS Defense\Vehicle\Boat\t_en_pie_BoatEngine_01_01_d.tga
+	map_Kd C:\Users\vados\Desktop\3D models\IS Defense\Vehicle\Boat\t_en_pie_BoatEngine_01_01_d.tga
+
+newmtl Material__138
+	Ns 10.000000
+	Ni 1.500000
+	d 1.000000
+	Tr 0.000000
+	Tf 1.000000 1.000000 1.000000 
+	illum 2
+	Ka 0.588000 0.588000 0.588000
+	Kd 0.588000 0.588000 0.588000
+	Ks 0.000000 0.000000 0.000000
+	Ke 0.000000 0.000000 0.000000
+	map_Ka C:\Users\vados\Desktop\3D models\IS Defense\Vehicle\Boat\t_en_pie_LifeGuardWheel_01_01_d.tga
+	map_Kd C:\Users\vados\Desktop\3D models\IS Defense\Vehicle\Boat\t_en_pie_LifeGuardWheel_01_01_d.tga
+
+newmtl Material__150
+	Ns 10.000000
+	Ni 1.500000
+	d 1.000000
+	Tr 0.000000
+	Tf 1.000000 1.000000 1.000000 
+	illum 2
+	Ka 0.588000 0.588000 0.588000
+	Kd 0.588000 0.588000 0.588000
+	Ks 0.000000 0.000000 0.000000
+	Ke 0.000000 0.000000 0.000000
+	map_Ka C:\Users\vados\Desktop\3D models\IS Defense\Vehicle\Boat\t_en_pie_Paddle_01_01_d.tga
+	map_Kd C:\Users\vados\Desktop\3D models\IS Defense\Vehicle\Boat\t_en_pie_Paddle_01_01_d.tga
+
+newmtl Material__162
+	Ns 10.000000
+	Ni 1.500000
+	d 1.000000
+	Tr 0.000000
+	Tf 1.000000 1.000000 1.000000 
+	illum 2
+	Ka 0.588000 0.588000 0.588000
+	Kd 0.588000 0.588000 0.588000
+	Ks 0.000000 0.000000 0.000000
+	Ke 0.000000 0.000000 0.000000
+	map_Ka C:\Users\vados\Desktop\3D models\IS Defense\Vehicle\Boat\t_vh_Boat_03_01_d.tga
+	map_Kd C:\Users\vados\Desktop\3D models\IS Defense\Vehicle\Boat\t_vh_Boat_03_01_d.tga
+
+newmtl wire_214229166
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.839216 0.898039 0.650980
+	Kd 0.839216 0.898039 0.650980
+	Ks 0.350000 0.350000 0.350000

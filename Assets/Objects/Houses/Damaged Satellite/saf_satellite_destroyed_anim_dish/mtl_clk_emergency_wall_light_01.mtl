@@ -1,0 +1,7 @@
+newmtl mtl_clk_emergency_wall_light_01
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Ks 0.50 0.50 0.50
+map_Kd ..\\_images\\clk_emergency_light_col.tga
+map_bump ..\\_images\\$identitynormalmap.tga

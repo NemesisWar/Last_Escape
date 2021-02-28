@@ -1,0 +1,8 @@
+newmtl saf_concrete_runway_01
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Ks 0.50 0.50 0.50
+map_Kd ..\\_images\\ny_manhattan_concrete_wall_02_col.tga
+map_bump ..\\_images\\ny_manhattan_concrete_wall_02_nml.tga
+map_Ks ..\\_images\\~saf_concrete_runway_01_spc-r~e1819da2.tga

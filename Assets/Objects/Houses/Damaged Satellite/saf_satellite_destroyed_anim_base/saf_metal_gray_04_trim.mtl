@@ -1,0 +1,8 @@
+newmtl saf_metal_gray_04_trim
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Ks 0.50 0.50 0.50
+map_Kd ..\\_images\\saf_metal_grey02_trim_col.tga
+map_bump ..\\_images\\saf_metal_grey02_trim_nml.tga
+map_Ks ..\\_images\\~saf_metal_grey02_trim_spc-r8~bca89af8.tga

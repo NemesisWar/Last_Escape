@@ -1,0 +1,8 @@
+newmtl mtl_saf_railing
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Ks 0.50 0.50 0.50
+map_Kd ..\\_images\\saf_railing_col.tga
+map_bump ..\\_images\\saf_railing_nml.tga
+map_Ks ..\\_images\\~saf_railing_spc-rgb&saf_rail~040c0263.tga

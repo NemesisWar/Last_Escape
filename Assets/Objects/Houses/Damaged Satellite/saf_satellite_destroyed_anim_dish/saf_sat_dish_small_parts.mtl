@@ -1,0 +1,8 @@
+newmtl saf_sat_dish_small_parts
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Ks 0.50 0.50 0.50
+map_Kd ..\\_images\\saf_satellite_pieces_metal_col.tga
+map_bump ..\\_images\\saf_satellite_pieces_metal_nml.tga
+map_Ks ..\\_images\\~saf_satellite_pieces_metal_s~90a29e62.tga

@@ -1,0 +1,8 @@
+newmtl mtl_ctl_angle_plate_bolted
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Ks 0.50 0.50 0.50
+map_Kd ..\\_images\\ctl_angle_plate_bolted_col.tga
+map_bump ..\\_images\\ctl_angle_plate_bolted_nml.tga
+map_Ks ..\\_images\\~ctl_angle_plate_bolted_spc-r~26f4e711.tga

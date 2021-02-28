@@ -1,0 +1,11 @@
+newmtl m_mtl_drone_explosive_base
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+map_Kd _images\\drone_explosive_base_col.dds
+map_Ns _images\\drone_explosive_base_nml.dds
+map_Ks _images\\~drone_explosive_base_spc-rgb~fb5c048a.dds

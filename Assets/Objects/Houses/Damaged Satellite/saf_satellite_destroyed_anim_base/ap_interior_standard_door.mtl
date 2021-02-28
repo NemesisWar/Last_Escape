@@ -1,0 +1,8 @@
+newmtl ap_interior_standard_door
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Ks 0.50 0.50 0.50
+map_Kd ..\\_images\\ap_door_standard_col.tga
+map_bump ..\\_images\\ap_door_standard_nml.tga
+map_Ks ..\\_images\\~ap_door_standard_spc-rgb&ap_~6f817977.tga
