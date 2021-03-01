@@ -12,7 +12,6 @@ public class GateHangar : Door
     }
     public override void OpenDoor(bool doorIsOpen)
     {
-
         if (doorIsOpen == true)
         {
             AudioSource.PlayOneShot(CloseAudio);
@@ -24,7 +23,6 @@ public class GateHangar : Door
             AudioSource.PlayOneShot(OpenAudio);
             TransformHorisontalDoor(OpenPosition);
         }
-
     }
 
     private void TransformHorisontalDoor(Vector3 to)

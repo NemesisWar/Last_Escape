@@ -7,7 +7,6 @@ using UnityEngine.Events;
 public class InventoryScriptsHandler : MonoBehaviour
 {
     [SerializeField] private PlayerInventory _playerInventory;
-
     private PlayerInventoryUI _playerInventoryUI;
     private ActiveItem _activeItem;
     private ActiveWeapon _activeWeapon;

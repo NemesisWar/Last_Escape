@@ -4,17 +4,17 @@ using UnityEngine;
 
 public abstract class Transitions : MonoBehaviour
 {
-    [SerializeField] private State _targetState;
-    protected Player Target{get; private set;}
-    protected Enemy _enemy { get; private set; }
-
     public State TargetState => _targetState;
-    public bool NeedTransit { get; protected set; }
+    public bool NeedTransit { get; protected set;}
+    protected Player Target{get; private set;}
+    protected Enemy Enemy { get; private set; }
+
+    [SerializeField] private State _targetState;
 
     public void Init(Player target)
     {
         Target = target;
-        _enemy = GetComponent<Enemy>();
+        Enemy = GetComponent<Enemy>();
     }
 
     private void OnEnable()

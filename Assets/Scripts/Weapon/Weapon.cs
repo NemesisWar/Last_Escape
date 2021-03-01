@@ -13,10 +13,6 @@ public abstract class Weapon : MonoBehaviour
     public Transform Forend => _forend;
     public string Label => _label;
 
-    [SerializeField] private Transform _lever;
-    [SerializeField] private Transform _forend;
-    [SerializeField] private string _label;
-
     [SerializeField] protected Bullet Bullet;
     [SerializeField] protected AmmoBox AmmoBox;
     [SerializeField] protected Transform BulletSpawn;
@@ -31,6 +27,10 @@ public abstract class Weapon : MonoBehaviour
     protected bool ShootMade;
     protected float CurrentTime;
 
+    [SerializeField] private Transform _lever;
+    [SerializeField] private Transform _forend;
+    [SerializeField] private string _label;
+
     private void Start()
     {
         AudioSource = GetComponent<AudioSource>();
@@ -41,6 +41,7 @@ public abstract class Weapon : MonoBehaviour
         if (AmmoInGun >= MaxAmmoInGun)
             AmmoInGun = MaxAmmoInGun;
     }
+
     public void AddCountAmmo(int countAmmo)
     {
         AmmoInGun = countAmmo;

@@ -8,7 +8,7 @@ public class PlayerNotVisibleTransition : Transitions
 
     private void Update()
     {
-        if (_enemy.FoundTarget.PlayerFound == false && Vector3.Distance(transform.position, _enemy.FoundTarget.LastVisiblePlayerPosition)<_distanceOffset)
+        if (Enemy.FoundTarget.PlayerFound == false && Vector3.Distance(transform.position, Enemy.FoundTarget.LastVisiblePlayerPosition)<_distanceOffset)
         {
             NeedTransit = true;
         }

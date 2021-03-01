@@ -12,8 +12,8 @@ public class WeaponHandled : MonoBehaviour
     [SerializeField] private ActiveWeapon _activeWeapon;
     [SerializeField] private FastIKFabric _leftHand;
     [SerializeField] private FastIKFabric _rightHand;
-    private Weapon[] _weapons;
     [SerializeField] private Weapon _currentWeapon;
+    private Weapon[] _weapons;
 
     private void OnEnable()
     {

@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class FoundTarget : MonoBehaviour
 {
+    public bool PlayerFound => _playerFound;
+    public Vector3 LastVisiblePlayerPosition => _lastVisiblePlayerPosition;
+    public Vector3 Offset;
+
     [SerializeField] private List<Vector3> _points;
     [SerializeField] private int _raysCount;
     [SerializeField] private float _angle;
     [SerializeField] private float _distanceRays;
-    [SerializeField] private bool _playerFound;
-    [SerializeField] private Vector3 _lastVisiblePlayerPosition;
-    [SerializeField] private Quaternion _originalPos;
-    [SerializeField] private Player _player;
-    [SerializeField] private Enemy _enemy;
-    private Vector3 _playerPosition;
-    [SerializeField] private float _angleBetweenPlayerAndEnemy;
+    private bool _playerFound;
+    private Vector3 _lastVisiblePlayerPosition;
+    private Quaternion _originalPos;
+    private Player _player;
+    private Enemy _enemy;
+    private float _angleBetweenPlayerAndEnemy;
     private float _distanceBetweenPlayerAndEnemy;
-    public bool PlayerFound => _playerFound;
-    public Vector3 LastVisiblePlayerPosition => _lastVisiblePlayerPosition;
-    public Vector3 offset;
+    private Vector3 _playerPosition;
 
     private void Start()
     {
@@ -71,7 +72,7 @@ public class FoundTarget : MonoBehaviour
         foreach (var point in _points)
         {
             RaycastHit hit = new RaycastHit();
-            Vector3 pos = transform.position + offset;
+            Vector3 pos = transform.position + Offset;
             if (Physics.Raycast(pos, point, out hit, _distanceRays))
             {
                 if (hit.transform.TryGetComponent(out Player player))

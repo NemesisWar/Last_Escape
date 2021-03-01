@@ -6,7 +6,7 @@ public class Rail_Gun : Weapon
 {
     [SerializeField] private ParticleSystem _idleEffect;
     [SerializeField] private AudioClip _charging;
-    [SerializeField] private AudioClip _activating;
+
     public override void Reload(int count)
     {
         AudioSource.PlayOneShot(ReloadedClip);

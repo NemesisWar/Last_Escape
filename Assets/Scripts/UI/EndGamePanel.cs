@@ -31,7 +31,7 @@ public class EndGamePanel : MonoBehaviour
     {
         _text.color = Color.red;
         _text.text = "Вы мертвы";
-        this.gameObject.SetActive(true);
+        gameObject.SetActive(true);
         Cursor.visible = true;
         Unsubscrible();
     }
@@ -40,7 +40,7 @@ public class EndGamePanel : MonoBehaviour
     {
         _text.color = Color.green;
         _text.text = "Вы спаслись";
-        this.gameObject.SetActive(true);
+        gameObject.SetActive(true);
         Cursor.visible = true;
         Unsubscrible();
     }

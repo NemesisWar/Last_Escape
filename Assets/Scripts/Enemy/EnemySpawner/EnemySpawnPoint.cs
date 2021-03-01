@@ -5,11 +5,11 @@ using UnityEngine.Events;
 
 public class EnemySpawnPoint : MonoBehaviour
 {
-    [SerializeField] private bool _enemyIsAlive;
-    [SerializeField] private UnityEngine.GameObject _enemyPrefab;
+    public event UnityAction CreatedEnemy;
     public bool EnemyIsAlive=>_enemyIsAlive;
 
-    public event UnityAction CreatedEnemy;
+    [SerializeField] private bool _enemyIsAlive;
+    [SerializeField] private GameObject _enemyPrefab;
 
     private void CrateEnemy(Player player)
     {

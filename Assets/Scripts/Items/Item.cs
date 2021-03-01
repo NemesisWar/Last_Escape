@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-   public int Count => _count;
+    public int Count => _count;
     public ItemData ItemData => _itemData;
 
     [SerializeField] private ItemData _itemData;

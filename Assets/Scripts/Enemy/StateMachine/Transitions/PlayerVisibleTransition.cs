@@ -8,11 +8,10 @@ public class PlayerVisibleTransition : Transitions
     [SerializeField] private AudioClip _playerFound;
     private void Update()
     {
-        if(_enemy.FoundTarget.PlayerFound == true && Vector3.Distance(transform.position, Target.transform.position) > 1.5f)
+        if(Enemy.FoundTarget.PlayerFound == true && Vector3.Distance(transform.position, Target.transform.position) > 1.5f)
         {
             _audioSource.PlayOneShot(_playerFound);
             NeedTransit = true;
         }
     }
-
 }

@@ -10,14 +10,13 @@ public class AttackState : State
     private void Update()
     {
         _time += Time.deltaTime;
-        _navMeshAgent.SetDestination(_enemy.Target.transform.position);
-        if (_attackDelayTime < _time && _enemy.Target.TryGetComponent(out Player player))
+        NavMeshAgent.SetDestination(Enemy.Target.transform.position);
+        if (_attackDelayTime < _time && Enemy.Target.TryGetComponent(out Player player))
         {
-            player.TakeDamage(_enemy.Damage);
+            player.TakeDamage(Enemy.Damage);
             _time = 0;
         }
-        _animator.SetBool("Walk", false);
-        _animator.SetBool("Attack", true);
+        Animator.SetBool("Walk", false);
+        Animator.SetBool("Attack", true);
     }
-
 }

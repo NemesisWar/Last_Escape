@@ -6,8 +6,8 @@ public class RunOnPlayerState : State
 {
     private void Update()
     {
-        _navMeshAgent.SetDestination(_enemy.FoundTarget.LastVisiblePlayerPosition);
-        _animator.SetBool("Walk", true);
-        _animator.SetBool("Attack", false);
+        NavMeshAgent.SetDestination(Enemy.FoundTarget.LastVisiblePlayerPosition);
+        Animator.SetBool("Walk", true);
+        Animator.SetBool("Attack", false);
     }
 }

@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class HealthBarChanger : MonoBehaviour
 {
     [SerializeField] private float _pathTime;
-
     private float _pathRunningTime;
     private Slider _slider;
     private Player _player;

@@ -7,11 +7,11 @@ using UnityEngine.Events;
 
 public class PlayerInventory : MonoBehaviour
 {
+    public event UnityAction<Dictionary<ItemData, int>> ChangeInventory;
+
     [SerializeField] private WeaponHandled _weaponHandled;
     [SerializeField] private int _maxItemsInInventory;
     private Dictionary<ItemData, int> _inventory = new Dictionary<ItemData, int>(6);
-
-    public event UnityAction<Dictionary<ItemData, int>> ChangeInventory;
 
     public void OnTriggerStay(Collider other)
     {

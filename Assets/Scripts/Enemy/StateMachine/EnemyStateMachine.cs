@@ -7,12 +7,12 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyStateMachine : MonoBehaviour
 {
+    public State Current => _currentState;
+
     [SerializeField] private State _firstState;
     [SerializeField] private Player _target;
     [SerializeField] private State _currentState;
     [SerializeField] private NavMeshAgent _navMeshAgent;
-
-    public State Current => _currentState;
 
     private void Start()
     {
@@ -29,6 +29,7 @@ public class EnemyStateMachine : MonoBehaviour
         if (nextState != null)
             Transit(nextState);
     }
+
     private void Reset(State startState)
     {
         _currentState = startState;

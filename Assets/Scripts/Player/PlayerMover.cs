@@ -103,7 +103,6 @@ public class PlayerMover : MonoBehaviour
                 }
             }
         }
-
         else
         {
             _verticalSpeed += Physics.gravity.y * 3 * Time.deltaTime;

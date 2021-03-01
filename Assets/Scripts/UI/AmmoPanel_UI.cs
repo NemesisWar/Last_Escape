@@ -9,7 +9,6 @@ public class AmmoPanel_UI : MonoBehaviour
     [SerializeField] private WeaponHandled _weaponHandled;
     [SerializeField] private Image _image;
     [SerializeField] private TMP_Text _countAmmo;
-
     private Weapon _weapon;
 
     private void Start()

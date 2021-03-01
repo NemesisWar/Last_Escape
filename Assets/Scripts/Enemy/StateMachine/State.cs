@@ -7,15 +7,17 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Animator))]
 public abstract class State : MonoBehaviour
 {
+    [SerializeField] protected NavMeshAgent NavMeshAgent;
+    [SerializeField] protected Animator Animator;
+    [SerializeField] protected Enemy Enemy;
+
     [SerializeField] private List<Transitions> _transitions;
-    [SerializeField] protected NavMeshAgent _navMeshAgent;
-    [SerializeField] protected Animator _animator;
-    [SerializeField] protected Enemy _enemy;
+
     private void OnEnable()
     {
-        _navMeshAgent = GetComponent<NavMeshAgent>();
-        _animator = GetComponent<Animator>();
-        _enemy = GetComponent<Enemy>();
+        NavMeshAgent = GetComponent<NavMeshAgent>();
+        Animator = GetComponent<Animator>();
+        Enemy = GetComponent<Enemy>();
     }
 
     protected Player Target { get; set; }
@@ -55,7 +57,6 @@ public abstract class State : MonoBehaviour
                 return transition.TargetState;
             }
         }
-
         return null;
     }
 }

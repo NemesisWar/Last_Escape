@@ -8,19 +8,18 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Animator))]
 public class Enemy : MonoBehaviour
 {
+    public event UnityAction <Enemy> Dying;
+    public Player Target => _target;
+    public FoundTarget FoundTarget => _foundTarget;
+    public float Damage => _damage;
+
     [SerializeField] private int _health;
     [SerializeField] private int _maxHealth;
     [SerializeField] private Player _target;
     [SerializeField] private FoundTarget _foundTarget;
     [SerializeField] private float _damage;
-    private CapsuleCollider _capsuleCollider;
     private Animator _animator;
-    public event UnityAction <Enemy> Dying;
     private EnemyStateMachine _enemyStateMachine;
-
-    public Player Target => _target;
-    public FoundTarget FoundTarget => _foundTarget;
-    public float Damage => _damage;
 
     private void OnValidate()
     {
@@ -29,7 +28,6 @@ public class Enemy : MonoBehaviour
     }
     private void Start()
     {
-        _capsuleCollider = GetComponent<CapsuleCollider>();
         _foundTarget = GetComponentInChildren<FoundTarget>();
         _animator = GetComponent<Animator>();
         _enemyStateMachine = GetComponent<EnemyStateMachine>();
@@ -56,5 +54,4 @@ public class Enemy : MonoBehaviour
         _animator.SetBool("Die", true);
         Destroy(this.gameObject, 10f);
     }
-
 }

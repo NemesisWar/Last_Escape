@@ -1283,13 +1283,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a550a0b66f4af754985dcb7e4f1e89be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NavMeshAgent: {fileID: 0}
+  Animator: {fileID: 0}
+  Enemy: {fileID: 0}
   _transitions:
   - {fileID: 6537583037198873849}
-  _navMeshAgent: {fileID: 0}
-  _animator: {fileID: 0}
-  _enemy: {fileID: 0}
-  minRandomValue: -20
-  maxRandomValue: 20
+  _minRandomValue: -15
+  _maxRandomValue: 15
   _targetMove: {x: 0, y: 0, z: 0}
   _offSet: 2
   _time: 0
@@ -1322,12 +1322,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58c273ea77406a641a7c83100571cc19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NavMeshAgent: {fileID: 0}
+  Animator: {fileID: 0}
+  Enemy: {fileID: 0}
   _transitions:
   - {fileID: 7909420875196134748}
   - {fileID: 5481076916638998516}
-  _navMeshAgent: {fileID: 0}
-  _animator: {fileID: 0}
-  _enemy: {fileID: 0}
 --- !u!114 &7909420875196134748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1354,12 +1354,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c68b075e093f6f42a128afc35f86973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NavMeshAgent: {fileID: 0}
+  Animator: {fileID: 0}
+  Enemy: {fileID: 0}
   _transitions:
   - {fileID: 6537583037198873849}
   - {fileID: 6924621738011430530}
-  _navMeshAgent: {fileID: 0}
-  _animator: {fileID: 0}
-  _enemy: {fileID: 0}
 --- !u!114 &6924621738011430530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1385,12 +1385,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a458e41ce11fec469869415fc47ed1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NavMeshAgent: {fileID: 0}
+  Animator: {fileID: 0}
+  Enemy: {fileID: 0}
   _transitions:
   - {fileID: 6537583037198873849}
   - {fileID: 7909420875196134748}
-  _navMeshAgent: {fileID: 0}
-  _animator: {fileID: 0}
-  _enemy: {fileID: 0}
   _attackDelayTime: 0.5
   _time: 0
 --- !u!114 &5481076916638998516
@@ -2303,17 +2303,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e492eab18eb5d409312c3fc8b67eb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Offset: {x: 0, y: 0.25, z: 0}
   _points: []
   _raysCount: 10
   _angle: 40
   _distanceRays: 100
-  _playerFound: 0
-  _lastVisiblePlayerPosition: {x: 0, y: 0, z: 0}
-  _originalPos: {x: 0, y: 0, z: 0, w: 0}
-  _player: {fileID: 0}
-  _enemy: {fileID: 0}
-  _angleBetweenPlayerAndEnemy: 0
-  offset: {x: 0, y: 0.25, z: 0}
 --- !u!1 &8897900838721577967
 GameObject:
   m_ObjectHideFlags: 0

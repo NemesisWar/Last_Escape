@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public int Damage => _damage;
+    public float Speed => _speed;
+
     [SerializeField] private int _damage;
     [SerializeField] private float _speed;
     private Vector3 _previousPosition;
-    public int Damage => _damage;
-    public float Speed => _speed;
 
     private void Start()
     {
