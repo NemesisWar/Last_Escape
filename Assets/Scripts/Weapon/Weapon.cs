@@ -7,8 +7,8 @@ public abstract class Weapon : MonoBehaviour
 {
     [HideInInspector]
     public AmmoBox Ammo => AmmoBox;
-    public int CountAmmo => AmmoInGun;
-    public int MaxCountAmmo => MaxAmmoInGun;
+    public int CountAmmo => _ammoInGun;
+    public int MaxCountAmmo => _maxAmmoInGun;
     public Transform Lever => _lever;
     public Transform Forend => _forend;
     public string Label => _label;
@@ -16,17 +16,17 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected Bullet Bullet;
     [SerializeField] protected AmmoBox AmmoBox;
     [SerializeField] protected Transform BulletSpawn;
-    [SerializeField] protected float DelayTime;
-    [SerializeField] protected int MaxAmmoInGun;
-    [SerializeField] protected int AmmoInGun;
     [SerializeField] protected AudioClip FireClip;
     [SerializeField] protected AudioClip ReloadedClip;
     [SerializeField] protected AudioClip EmptyClip;
-    [SerializeField] protected ParticleSystem Fireball;
     protected AudioSource AudioSource;
     protected bool ShootMade;
     protected float CurrentTime;
 
+    [SerializeField] private ParticleSystem _fireball;
+    [SerializeField] private int _maxAmmoInGun;
+    [SerializeField] private int _ammoInGun;
+    [SerializeField] private float _delayTime;
     [SerializeField] private Transform _lever;
     [SerializeField] private Transform _forend;
     [SerializeField] private string _label;
@@ -38,15 +38,46 @@ public abstract class Weapon : MonoBehaviour
 
     private void OnValidate()
     {
-        if (AmmoInGun >= MaxAmmoInGun)
-            AmmoInGun = MaxAmmoInGun;
+        if (_ammoInGun >= _maxAmmoInGun)
+            _ammoInGun = _maxAmmoInGun;
     }
 
     public void AddCountAmmo(int countAmmo)
     {
-        AmmoInGun = countAmmo;
+        _ammoInGun = countAmmo;
     }
 
-    public abstract void Shoot();
-    public abstract void Reload(int count);
+    public void Reload(int count)
+    {
+        AudioSource.PlayOneShot(ReloadedClip);
+        _ammoInGun = count;
+    }
+
+    public abstract void TryShoot();
+
+    protected bool HaveAmmo()
+    {
+        return _ammoInGun > 0;
+    }
+
+    protected bool DelayTimePassed()
+    {
+        return CurrentTime >= _delayTime;
+    }
+
+    protected void Shoot()
+    {
+        CurrentTime = 0;
+        Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation);
+        _fireball.Play();
+        AudioSource.PlayOneShot(FireClip);
+        ShootMade = true;
+        _ammoInGun--;
+    }
+
+    protected void CanNotShoot()
+    {
+        CurrentTime = 0;
+        AudioSource.PlayOneShot(EmptyClip);
+    }
 }

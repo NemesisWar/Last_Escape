@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     public Player Target => _target;
     public FoundTarget FoundTarget => _foundTarget;
     public float Damage => _damage;
+    public int Health => _health;
 
     [SerializeField] private int _health;
     [SerializeField] private int _maxHealth;
@@ -52,6 +53,6 @@ public class Enemy : MonoBehaviour
         Dying?.Invoke(this);
         _enemyStateMachine.StopMachine();
         _animator.SetBool("Die", true);
-        Destroy(this.gameObject, 10f);
+        Destroy(gameObject, 10f);
     }
 }

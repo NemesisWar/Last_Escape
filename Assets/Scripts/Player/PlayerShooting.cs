@@ -66,7 +66,7 @@ public class PlayerShooting : MonoBehaviour
                 {
                     _currentWeapon = _weaponPosition.GetComponent<WeaponHandled>().CurrentWeapon.transform;
                 }
-                _currentWeapon.GetComponent<Weapon>().Shoot();
+                _currentWeapon.GetComponent<Weapon>().TryShoot();
             }
         }
     }

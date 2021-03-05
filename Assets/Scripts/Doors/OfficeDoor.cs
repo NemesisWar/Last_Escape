@@ -7,7 +7,6 @@ public class OfficeDoor : Door
 {
     private void Start()
     {
-        AudioSource = GetComponent<AudioSource>();
         ClosedPosition = transform.eulerAngles;
         OpenPosition = new Vector3(ClosedPosition.x, ClosedPosition.y + 120f, ClosedPosition.z);
     }
@@ -16,18 +15,23 @@ public class OfficeDoor : Door
     {
         if (doorIsOpen == true)
         {
-            AudioSource.PlayOneShot(CloseAudio);
-            TransformRotationDoor(ClosedPosition);
+            PlaySound(CloseAudio);
+            TransformDoor(ClosedPosition);
         }
         else
         {
-            AudioSource.PlayOneShot(OpenAudio);
-            TransformRotationDoor(OpenPosition);
+            PlaySound(OpenAudio);
+            TransformDoor(OpenPosition);
         }
     }
 
-    private void TransformRotationDoor(Vector3 to)
+    protected override void TransformDoor(Vector3 newDoorPosition)
     {
-        transform.DORotate(to, 2f);
+        transform.DORotate(newDoorPosition, 2f);
+    }
+
+    protected override void PlaySound(AudioClip audioClip)
+    {
+        AudioSource.PlayOneShot(audioClip);
     }
 }

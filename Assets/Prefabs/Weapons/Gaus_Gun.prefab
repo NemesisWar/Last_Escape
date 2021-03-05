@@ -9959,19 +9959,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a63beb93aa0cf148a14cc242d8ebe58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lever: {fileID: 2766378515268802860}
-  _forend: {fileID: 1852371365320380916}
-  _label: RG_Mk3
   Bullet: {fileID: 8937521731769725237, guid: 57147f84d870fd64383f909c0be3f64c, type: 3}
   AmmoBox: {fileID: 3811827790210995331, guid: 147223e5c2f01154b81d0a23219092c0, type: 3}
   BulletSpawn: {fileID: 2722448957273934815}
-  DelayTime: 1
-  MaxAmmoInGun: 10
-  AmmoInGun: 10
   FireClip: {fileID: 8300000, guid: bf622608d20885743aef03f3ffd32fc4, type: 3}
   ReloadedClip: {fileID: 8300000, guid: f0868ce2bca4a2e4a94b34624249d8c4, type: 3}
   EmptyClip: {fileID: 8300000, guid: b46f1a46958e2a74881433e691da00d6, type: 3}
-  Fireball: {fileID: 6420570035028416519}
+  _fireball: {fileID: 6420570035028416519}
+  _maxAmmoInGun: 10
+  _ammoInGun: 10
+  _delayTime: 1
+  _lever: {fileID: 2766378515268802860}
+  _forend: {fileID: 1852371365320380916}
+  _label: RG_Mk3
 --- !u!114 &3841155315952536381
 MonoBehaviour:
   m_ObjectHideFlags: 0

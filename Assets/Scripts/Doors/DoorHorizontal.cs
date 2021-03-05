@@ -5,12 +5,14 @@ using DG.Tweening;
 
 public class DoorHorizontal : Door
 {
+    private float _distanceBetweenOpenAndClosed = 2f;
+
     private void Start()
     {
-        AudioSource = GetComponent<AudioSource>();
         ClosedPosition = transform.localPosition;
-        OpenPosition = new Vector3(ClosedPosition.x - 2, ClosedPosition.y, ClosedPosition.z);
+        OpenPosition = new Vector3(ClosedPosition.x - _distanceBetweenOpenAndClosed, ClosedPosition.y, ClosedPosition.z);
     }
+
     public override void OpenDoor(bool doorIsOpen)
     {
         if (AutoClose)
@@ -21,28 +23,34 @@ public class DoorHorizontal : Door
         {
             if (doorIsOpen == true)
             {
-                AudioSource.PlayOneShot(CloseAudio);
-                TransformHorisontalDoor(ClosedPosition);
+                
+                PlaySound(CloseAudio);
+                TransformDoor(ClosedPosition);
             }
             else
             {
-                AudioSource.PlayOneShot(OpenAudio);
-                TransformHorisontalDoor(OpenPosition);
+                PlaySound(OpenAudio);
+                TransformDoor(OpenPosition);
             }
         }
     }
 
-    private void TransformHorisontalDoor(Vector3 to)
+    protected override void TransformDoor(Vector3 newDoorPosition)
     {
-        transform.DOLocalMove(to, 2f);
+        transform.DOLocalMove(newDoorPosition, 2f);
+    }
+
+    protected override void PlaySound(AudioClip audioClip)
+    {
+        AudioSource.PlayOneShot(audioClip);
     }
 
     private void AutoCloseDoor(Vector3 from, Vector3 to)
     {
         Sequence sequence = DOTween.Sequence();
-        AudioSource.PlayOneShot(OpenAudio);
+        PlaySound(OpenAudio);
         sequence.Append(transform.DOLocalMove(to, 2f));
-        AudioSource.PlayOneShot(CloseAudio);
+        PlaySound(CloseAudio);
         sequence.Append(transform.DOLocalMove(from, 2f).SetDelay(5f));
     }
 }

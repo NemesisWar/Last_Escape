@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
         _playerStaminaHasBeenChanged?.Invoke();
     }
 
-    public void Die()
+    private void Die()
     {
         Dying?.Invoke();
         MonoBehaviour[] scripst = GetComponents<MonoBehaviour>();

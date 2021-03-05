@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class DeadZone : MonoBehaviour
 {
+
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent<Player>(out Player player))
+        if(other.TryGetComponent(out Player player))
         {
             player.TakeDamage(player.Health);
         }
-        if(other.TryGetComponent<Enemy>(out Enemy enemy))
+        if(other.TryGetComponent(out Enemy enemy))
         {
-            enemy.TakeDamage(300);
+            enemy.TakeDamage(enemy.Health);
         }
     }
 }

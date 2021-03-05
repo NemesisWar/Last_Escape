@@ -4,13 +4,5 @@ using UnityEngine;
 
 public class Melee : Weapon
 {
-    public override void Reload(int count)
-    {
-
-    }
-
-    public override void Shoot()
-    {
-       
-    }
+    public override void TryShoot() { }
 }

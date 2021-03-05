@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerInventory))]
 public class ReloadWeapon : MonoBehaviour
 {
-    [SerializeField] private WeaponHandled _weaponHandled;
-    [SerializeField] private PlayerInventory _playerInventory;
+    private WeaponHandled _weaponHandled;
+    private PlayerInventory _playerInventory;
     private int _countAmmoForReload;
 
     private void Start()

@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ItemSpawner : MonoBehaviour
 {
-    [SerializeField] private List<SpawnItem> _spawnAllPoints;
-    [SerializeField] private List<SpawnItem> _spawnWeaponPoints;
-    [SerializeField] private List<SpawnItem> _spawnAmmoPoints;
-    [SerializeField] private List<SpawnItem> _spawnFirstAidKitPoints;
-    [SerializeField] private List<SpawnItem> _spawnKeysPoints;
+    [SerializeField, HideInInspector] private List<SpawnPointItem> _spawnWeaponPoints;
+    [SerializeField, HideInInspector] private List<SpawnPointItem> _spawnAmmoPoints;
+    [SerializeField, HideInInspector] private List<SpawnPointItem> _spawnFirstAidKitPoints;
+    [SerializeField, HideInInspector] private List<SpawnPointItem> _spawnKeysPoints;
     [SerializeField] private List<ItemData> _weaponItem;
     [SerializeField] private List<ItemData> _ammoItem;
     [SerializeField] private List<ItemData> _firstAidKitItem;
@@ -18,8 +18,10 @@ public class ItemSpawner : MonoBehaviour
 
     private void Awake()
     {
-        _spawnAllPoints.AddRange(GetComponentsInChildren<SpawnItem>());
-        AddPointsOnRange();
+        _spawnWeaponPoints.AddRange(GetComponentsInChildren<SpawnPointItem>().Where(spawnPoint => spawnPoint.Type.ToString().Contains("Weapon")));
+        _spawnAmmoPoints.AddRange(GetComponentsInChildren<SpawnPointItem>().Where(spawnPoint => spawnPoint.Type.ToString().Contains("Ammo")));
+        _spawnFirstAidKitPoints.AddRange(GetComponentsInChildren<SpawnPointItem>().Where(spawnPoint => spawnPoint.Type.ToString().Contains("FirstAidKit")));
+        _spawnKeysPoints.AddRange(GetComponentsInChildren<SpawnPointItem>().Where(spawnPoint => spawnPoint.Type.ToString().Contains("Key")));
     }
 
     private void Start()
@@ -30,30 +32,7 @@ public class ItemSpawner : MonoBehaviour
         InstantiateObjectsInRandomPoints(_spawnKeysPoints, _keyItem);
     }
 
-    private void AddPointsOnRange()
-    {
-        foreach (var item in _spawnAllPoints)
-        {
-            if (((int)item.Type) == 0)
-            {
-                _spawnWeaponPoints.Add(item);
-            }
-            if (((int)item.Type) == 1)
-            {
-                _spawnAmmoPoints.Add(item);
-            }
-            if (((int)item.Type) == 2)
-            {
-                _spawnFirstAidKitPoints.Add(item);
-            }
-            if (((int)item.Type) == 3)
-            {
-                _spawnKeysPoints.Add(item);
-            }
-        }
-    }
-
-    private void InstantiateObjectsInRandomPoints(List<SpawnItem> points, List<ItemData> DictionaryItem)
+    private void InstantiateObjectsInRandomPoints(List<SpawnPointItem> points, List<ItemData> DictionaryItem)
     {
         foreach (var item in DictionaryItem)
         {
@@ -71,7 +50,7 @@ public class ItemSpawner : MonoBehaviour
         }
     }
 
-    private bool ItemNotSpawnedInThisPoint(SpawnItem spawnpoint)
+    private bool ItemNotSpawnedInThisPoint(SpawnPointItem spawnpoint)
     {
         return spawnpoint.ItemSpawned;
     }

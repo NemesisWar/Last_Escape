@@ -9977,19 +9977,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b8a9c4f6ccf69646abc957f2ab8885f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lever: {fileID: 4335305593824964582}
-  _forend: {fileID: 2854088879057745663}
-  _label: XM-01
   Bullet: {fileID: 6387075542046725858, guid: 431d8186aba6ee34bb1dd93040987339, type: 3}
   AmmoBox: {fileID: 471936362566781454, guid: 17f7bd1338e5cd9449cf90dd8b88300d, type: 3}
   BulletSpawn: {fileID: 8386619506066023171}
-  DelayTime: 0.05
-  MaxAmmoInGun: 40
-  AmmoInGun: 40
   FireClip: {fileID: 8300000, guid: 79226c3c41d8a4145b3cc5c0e98c5c85, type: 3}
   ReloadedClip: {fileID: 8300000, guid: 19d21683322983148824c813dfb96cda, type: 3}
   EmptyClip: {fileID: 8300000, guid: b46f1a46958e2a74881433e691da00d6, type: 3}
-  Fireball: {fileID: 5662557053939176884}
+  _fireball: {fileID: 5662557053939176884}
+  _maxAmmoInGun: 40
+  _ammoInGun: 40
+  _delayTime: 0.1
+  _lever: {fileID: 4335305593824964582}
+  _forend: {fileID: 2854088879057745663}
+  _label: XM-01
 --- !u!65 &3301516326974256502
 BoxCollider:
   m_ObjectHideFlags: 0

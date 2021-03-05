@@ -7,29 +7,34 @@ public class DoorVertical : Door
 {
     private void Start()
     {
-        AudioSource = GetComponent<AudioSource>();
         ClosedPosition = transform.localPosition;
     }
+
     public override void OpenDoor(bool doorIsOpen)
     {
         if (!AutoClose)
         {
             if (doorIsOpen == true)
             {
-                AudioSource.PlayOneShot(CloseAudio);
-                TransformHorisontalDoor(ClosedPosition);
+                PlaySound(CloseAudio);
+                TransformDoor(ClosedPosition);
             }
 
             else
             {
-                AudioSource.PlayOneShot(OpenAudio);
-                TransformHorisontalDoor(OpenPosition);
+                PlaySound(OpenAudio);
+                TransformDoor(OpenPosition);
             }
         }
     }
 
-    private void TransformHorisontalDoor(Vector3 to)
+    protected override void TransformDoor(Vector3 newDoorPosition)
     {
-        transform.DOLocalMove(to, 5f);
+        transform.DOLocalMove(newDoorPosition, 5f);
+    }
+
+    protected override void PlaySound(AudioClip audioClip)
+    {
+        AudioSource.PlayOneShot(audioClip);
     }
 }

@@ -12,5 +12,14 @@ public abstract class Door : MonoBehaviour
     [SerializeField] protected AudioClip CloseAudio;
     protected AudioSource AudioSource;
 
+    private void Awake()
+    {
+        AudioSource = GetComponent<AudioSource>();
+    }
+
     public abstract void OpenDoor(bool positionDoor);
+
+    protected abstract void TransformDoor(Vector3 newDoorPosition);
+
+    protected abstract void PlaySound(AudioClip audioClip);
 }

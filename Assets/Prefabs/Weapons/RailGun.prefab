@@ -5114,22 +5114,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0375d5efbb01d964596bac834b5fd79d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lever: {fileID: 5730257737036126166}
-  _forend: {fileID: 4896799259890286042}
-  _label: Rail_Gun
   Bullet: {fileID: 5153089836284017732, guid: 8d94e312efbf444469c215bd298b4db3, type: 3}
   AmmoBox: {fileID: 2440135434906192999, guid: a23a79130e0f57340b1951994ce43e9d, type: 3}
   BulletSpawn: {fileID: 4773814275099943335}
-  DelayTime: 3
-  MaxAmmoInGun: 5
-  AmmoInGun: 5
   FireClip: {fileID: 8300000, guid: f7abecf0ce7968e499fffdb9b559bc10, type: 3}
   ReloadedClip: {fileID: 8300000, guid: 19d21683322983148824c813dfb96cda, type: 3}
   EmptyClip: {fileID: 0}
-  Fireball: {fileID: 8802126639317414161}
+  _fireball: {fileID: 8802126639317414161}
+  _maxAmmoInGun: 5
+  _ammoInGun: 5
+  _delayTime: 3
+  _lever: {fileID: 5730257737036126166}
+  _forend: {fileID: 4896799259890286042}
+  _label: Rail_Gun
   _idleEffect: {fileID: 5610623117329422841}
   _charging: {fileID: 8300000, guid: 8c45ec01be6c92e429d8f10ce3b6163e, type: 3}
-  _activating: {fileID: 8300000, guid: be045e1e8250f4c4890174fdc9bfac8a, type: 3}
 --- !u!114 &8173909478165127894
 MonoBehaviour:
   m_ObjectHideFlags: 0

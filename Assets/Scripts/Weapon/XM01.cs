@@ -4,28 +4,37 @@ using UnityEngine;
 
 public class XM01 : Weapon
 {
-    public override void Reload(int count)
-    {
-        AudioSource.PlayOneShot(ReloadedClip);
-        AmmoInGun = count;
-    }
+    //public override void TryShoot()
+    //{
+    //    if (CurrentTime >= DelayTime)
+    //    {
+    //        CurrentTime = 0;
+    //        if (AmmoInGun > 0)
+    //        {
+    //            Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation);
+    //            Fireball.Play();
+    //            AudioSource.PlayOneShot(FireClip);
+    //            ShootMade = true;
+    //            AmmoInGun--;
+    //        }
+    //        else
+    //        {
+    //            AudioSource.PlayOneShot(EmptyClip);
+    //        }
+    //    }
+    //}
 
-    public override void Shoot()
-    {
-        if (CurrentTime >= DelayTime)
+    public override void TryShoot()
+    {       
+        if (DelayTimePassed())
         {
-            CurrentTime = 0;
-            if (AmmoInGun > 0)
+            if (HaveAmmo())
             {
-                Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation);
-                Fireball.Play();
-                AudioSource.PlayOneShot(FireClip);
-                ShootMade = true;
-                AmmoInGun--;
+                Shoot();
             }
             else
             {
-                AudioSource.PlayOneShot(EmptyClip);
+                CanNotShoot();
             }
         }
     }
