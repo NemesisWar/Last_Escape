@@ -8,8 +8,8 @@ public class Item : MonoBehaviour
     public ItemData ItemData => _itemData;
 
     [SerializeField] private ItemData _itemData;
-    [SerializeField] private bool _isWeapon;
     [SerializeField] private int _count;
+    private bool _isWeapon;
 
     private void Start()
     {

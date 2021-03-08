@@ -7,7 +7,7 @@ public class SpawnPointItem : MonoBehaviour
     public ItemCharacter Type;
     public bool ItemSpawned => _itemSpawned;
 
-    [SerializeField] private bool _itemSpawned;
+    private bool _itemSpawned;
 
     public enum ItemCharacter
     {
