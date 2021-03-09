@@ -15,7 +15,7 @@ public class PlayerInventory : MonoBehaviour
 
     public void OnTriggerStay(Collider other)
     {
-        if (Input.GetButtonDown("TakeItem") && other.TryGetComponent(out Item takeditem))
+        if (Input.GetKeyDown(KeyCode.F) && other.TryGetComponent(out Item takeditem))
         {
             bool canTakeIt = CanTakeIt(takeditem);
             if (canTakeIt==true)
@@ -119,15 +119,15 @@ public class PlayerInventory : MonoBehaviour
 
     public void RestockItems()
     {
-        Dictionary<ItemData, int> _tempIitems = new Dictionary<ItemData, int>();
+        Dictionary<ItemData, int> tempIitems = new Dictionary<ItemData, int>();
         foreach (var item in _inventory)
         {
             if (item.Value == 0)
                 continue;
             else
-                _tempIitems.Add(item.Key, item.Value);
+                tempIitems.Add(item.Key, item.Value);
         }
-        _inventory = _tempIitems;
+        _inventory = tempIitems;
         ChangeInventory?.Invoke(_inventory);
     }
 

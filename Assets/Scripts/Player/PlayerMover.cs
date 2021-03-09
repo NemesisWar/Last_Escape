@@ -32,7 +32,6 @@ public class PlayerMover : MonoBehaviour
     private Ray _ray;
     private RaycastHit _hit;
     private float _distanceRay = 0.1f;
-    private float _maxAxis;
    
     private void Start()
     {
@@ -49,7 +48,7 @@ public class PlayerMover : MonoBehaviour
         _run = Input.GetAxis("Run")+1;
         if (_axisX != 0 || _axisZ != 0)
         {
-            _maxAxis = Mathf.Max(Mathf.Abs(_axisX), Mathf.Abs(_axisZ));
+            float maxAxis = Mathf.Max(Mathf.Abs(_axisX), Mathf.Abs(_axisZ));
             if(_run > 1 && _player.Stamina > _minStaminaForRun)
             {
                 _player.SpendingStamina(_minStaminaForRun);
@@ -59,7 +58,7 @@ public class PlayerMover : MonoBehaviour
                 _run = 1;
                 _player.AddStamina(_regenetareStamina);
             }
-            _speed = _maxAxis * _startSpeed * _run;
+            _speed = maxAxis * _startSpeed * _run;
         }
         else
         {
