@@ -17,6 +17,7 @@ public class PlayerMover : MonoBehaviour
     [SerializeField] private float _powerJump;
     [SerializeField] private float _minStaminaForRun;
     [SerializeField] private float _regenetareStamina;
+    [SerializeField] private float _distanceRay;
     private float _speed;
     private float _previousSpeed;
     private float _axisX;
@@ -25,14 +26,9 @@ public class PlayerMover : MonoBehaviour
     private bool _jump;
     private bool _previousJump;
     private float _run;
-    private bool _hitGround;
-    private Vector3 _move;
     private Rigidbody _rigidbody;
     private Player _player;
-    private Ray _ray;
-    private RaycastHit _hit;
-    private float _distanceRay = 0.1f;
-   
+
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -45,15 +41,15 @@ public class PlayerMover : MonoBehaviour
         _axisX = Input.GetAxis("Horizontal");
         _axisZ = Input.GetAxis("Vertical");
         _jump = Input.GetButton("Jump");
-        _run = Input.GetAxis("Run")+1;
+        _run = Input.GetAxis("Run") + 1;
         if (_axisX != 0 || _axisZ != 0)
         {
             float maxAxis = Mathf.Max(Mathf.Abs(_axisX), Mathf.Abs(_axisZ));
-            if(_run > 1 && _player.Stamina > _minStaminaForRun)
+            if (_run > 1 && _player.Stamina > _minStaminaForRun)
             {
                 _player.SpendingStamina(_minStaminaForRun);
             }
-            if(_player.Stamina <= _minStaminaForRun || _run==1f)
+            if (_player.Stamina <= _minStaminaForRun || _run == 1f)
             {
                 _run = 1;
                 _player.AddStamina(_regenetareStamina);
@@ -62,7 +58,7 @@ public class PlayerMover : MonoBehaviour
         }
         else
         {
-            _player.AddStamina(_regenetareStamina*2f);
+            _player.AddStamina(_regenetareStamina * 2f);
         }
         if (_previousSpeed != _speed)
         {
@@ -75,16 +71,11 @@ public class PlayerMover : MonoBehaviour
     {
         _rigidbody.velocity = Vector3.zero;
         _rigidbody.angularVelocity = Vector3.zero;
-        _move = new Vector3(0,0,0);
-        _move.x = _axisX * _speed;
-        _move.z = _axisZ * _speed;
-        _move = Vector3.ClampMagnitude(_move, _speed);
-        _move = transform.TransformDirection(_move);
-        _hitGround = false;
-        _ray = new Ray(transform.position, Vector3.down);
-
-        CheckGround();
-        if (_hitGround)
+        Vector3 move = new Vector3(_axisX * _speed, 0, _axisZ * _speed);
+        move = Vector3.ClampMagnitude(move, _speed);
+        move = transform.TransformDirection(move);
+        bool hitGround = CheckGround();
+        if (hitGround)
         {
             if (_jump)
             {
@@ -95,7 +86,7 @@ public class PlayerMover : MonoBehaviour
             else
             {
                 _verticalSpeed = 0f;
-                if(_previousJump != _jump)
+                if (_previousJump != _jump)
                 {
                     _previousJump = _jump;
                     OnGroundStatusHasBeenChanged?.Invoke(_jump);
@@ -110,18 +101,16 @@ public class PlayerMover : MonoBehaviour
                 _verticalSpeed = _MaxVerticalSpeed;
             }
         }
-
-        _move.y = _verticalSpeed;
-        _move = _move * Time.deltaTime;
-        _move += transform.position;
-        _rigidbody.MovePosition(_move);
+        move.y = _verticalSpeed;
+        move = move * Time.deltaTime;
+        move += transform.position;
+        _rigidbody.MovePosition(move);
     }
 
-    private void CheckGround()
+    private bool CheckGround()
     {
-        if (Physics.Raycast(_ray, out _hit))
-        {
-            _hitGround = _distanceRay >= _hit.distance;
-        }
+        Ray ray = new Ray(transform.position, Vector3.down);
+        Physics.Raycast(ray, out RaycastHit hit);
+        return _distanceRay >= hit.distance;
     }
 }
