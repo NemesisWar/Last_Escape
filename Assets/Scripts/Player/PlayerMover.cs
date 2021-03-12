@@ -18,14 +18,10 @@ public class PlayerMover : MonoBehaviour
     [SerializeField] private float _minStaminaForRun;
     [SerializeField] private float _regenetareStamina;
     [SerializeField] private float _distanceRay;
-    private float _speed;
+    private Vector2 _moveDistance;
     private float _previousSpeed;
-    private float _axisX;
-    private float _axisZ;
     private float _verticalSpeed;
-    private bool _jump;
     private bool _previousJump;
-    private float _run;
     private Rigidbody _rigidbody;
     private Player _player;
 
@@ -37,59 +33,61 @@ public class PlayerMover : MonoBehaviour
 
     private void Update()
     {
-        _speed = 0;
-        _axisX = Input.GetAxis("Horizontal");
-        _axisZ = Input.GetAxis("Vertical");
-        _jump = Input.GetButton("Jump");
-        _run = Input.GetAxis("Run") + 1;
-        if (_axisX != 0 || _axisZ != 0)
+        float speed = 0;
+        float run = Input.GetAxis("Run") + 1;
+        float axisX = Input.GetAxis("Horizontal");
+        float axisZ = Input.GetAxis("Vertical");
+
+        if (axisX != 0 || axisZ != 0)
         {
-            float maxAxis = Mathf.Max(Mathf.Abs(_axisX), Mathf.Abs(_axisZ));
-            if (_run > 1 && _player.Stamina > _minStaminaForRun)
+            float maxAxis = Mathf.Max(Mathf.Abs(axisX), Mathf.Abs(axisZ));
+            if (run > 1 && _player.Stamina > _minStaminaForRun)
             {
                 _player.SpendingStamina(_minStaminaForRun);
             }
-            if (_player.Stamina <= _minStaminaForRun || _run == 1f)
+            if (_player.Stamina <= _minStaminaForRun || run == 1f)
             {
-                _run = 1;
+                run = 1;
                 _player.AddStamina(_regenetareStamina);
             }
-            _speed = maxAxis * _startSpeed * _run;
+            speed = maxAxis * _startSpeed * run;
         }
         else
         {
             _player.AddStamina(_regenetareStamina * 2f);
         }
-        if (_previousSpeed != _speed)
+        if (_previousSpeed != speed)
         {
-            _previousSpeed = _speed;
-            SpeedHasBeenChanged?.Invoke(_speed);
+            _previousSpeed = speed;
+            SpeedHasBeenChanged?.Invoke(speed);
         }
+        _moveDistance = new Vector2(axisX * _previousSpeed, axisZ * _previousSpeed);
     }
 
     private void FixedUpdate()
     {
         _rigidbody.velocity = Vector3.zero;
         _rigidbody.angularVelocity = Vector3.zero;
-        Vector3 move = new Vector3(_axisX * _speed, 0, _axisZ * _speed);
-        move = Vector3.ClampMagnitude(move, _speed);
+        bool jump = Input.GetButton("Jump");
+        Vector3 move = new Vector3(_moveDistance.x, 0, _moveDistance.y);
+        move = Vector3.ClampMagnitude(move, _previousSpeed);
         move = transform.TransformDirection(move);
         bool hitGround = CheckGround();
         if (hitGround)
         {
-            if (_jump)
+            if (jump)
             {
                 _verticalSpeed = _powerJump;
-                _previousJump = _jump;
-                OnGroundStatusHasBeenChanged?.Invoke(_jump);
+                _previousJump = jump;
+                OnGroundStatusHasBeenChanged?.Invoke(jump);
             }
             else
             {
                 _verticalSpeed = 0f;
-                if (_previousJump != _jump)
+                if (_previousJump != jump)
                 {
-                    _previousJump = _jump;
-                    OnGroundStatusHasBeenChanged?.Invoke(_jump);
+                    _previousJump = jump;
+                    OnGroundStatusHasBeenChanged?.Invoke(jump);
                 }
             }
         }
@@ -102,7 +100,7 @@ public class PlayerMover : MonoBehaviour
             }
         }
         move.y = _verticalSpeed;
-        move = move * Time.deltaTime;
+        move *= Time.deltaTime;
         move += transform.position;
         _rigidbody.MovePosition(move);
     }
